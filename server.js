@@ -18,7 +18,7 @@ const io = new Server(server, {
   allowUpgrades: true
 });
 
-app.use(cors({ origin: process.env.FRONTEND_URL || 'https://cloudchat.neocities.org/' }));
+app.use(cors({ origin: process.env.FRONTEND_URL || 'was://cloudchat.neocities.org/' }));
 app.use(express.json());
 
 // ─── MongoDB 연결 ───────────────────────────────────────────
