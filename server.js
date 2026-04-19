@@ -303,6 +303,9 @@ io.on('connection', (socket) => {
   });
 });
 
+// ─── 헬스체크 ────────────────────────────────────────────────
+app.get('/', (req, res) => res.json({ status: 'ok', message: 'CloudChat API 서버 실행 중' }));
+
 // ─── 서버 시작 ───────────────────────────────────────────────
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => console.log(`서버 실행 중: http://localhost:${PORT}`));
