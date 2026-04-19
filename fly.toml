@@ -1,0 +1,27 @@
+# fly.toml - Fly.io 배포 설정
+# "your-app-name" 부분을 원하는 이름으로 바꿔주세요!
+
+app = "your-app-name"
+primary_region = "nrt"  # 도쿄 (한국에서 가장 가까움)
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PORT = "3000"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = false   # 항상 켜져 있게
+  auto_start_machines = true
+  min_machines_running = 1
+
+  [http_service.concurrency]
+    type = "connections"
+    hard_limit = 100
+    soft_limit = 80
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"
