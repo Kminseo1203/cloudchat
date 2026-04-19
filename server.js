@@ -20,7 +20,7 @@ app.use(cors({ origin: process.env.FRONTEND_URL || '*' }));
 app.use(express.json());
 
 // ─── MongoDB 연결 ───────────────────────────────────────────
-mongoose.connect(process.env.MONGO_URI || 'mongodb+srv://kmimseo1203_db_user:d13@12@03@@cluster0.bywsfcf.mongodb.net/?appName=Cluster0')
+mongoose.connect(process.env.MONGO_URI || 'mongodb+srv://kmimseo1203_db_user:d13%4012%4003%40@cluster0.bywsfcf.mongodb.net/?appName=Cluster0')
   .then(() => console.log('MongoDB 연결 완료'))
   .catch(err => console.error('MongoDB 연결 실패:', err));
 
