@@ -1,8 +1,5 @@
-# fly.toml - Fly.io 배포 설정
-# "your-app-name" 부분을 원하는 이름으로 바꿔주세요!
-
 app = "cloudchat"
-primary_region = "nrt"  # 도쿄 (한국에서 가장 가까움)
+primary_region = "nrt"
 
 [build]
   dockerfile = "Dockerfile"
