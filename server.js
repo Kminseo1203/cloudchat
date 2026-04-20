@@ -144,12 +144,12 @@ app.get('/api/users/search', auth, async (req, res) => {
   }
 });
 
-// 유저 공개키 조회
-app.get('/api/users/:id/publickey', auth, async (req, res) => {
+app.get('/api/rooms', auth, async (req, res) => {
   try {
-    const user = await User.findById(req.params.id).select('publicKey username');
-    if (!user) return res.status(404).json({ error: '유저 없음' });
-    res.json(user);
+    const rooms = await Room.find({ members: req.user.id })
+      .populate('members', 'username publicKey')
+      .sort({ createdAt: -1 });
+    res.json(rooms);
   } catch {
     res.status(500).json({ error: '서버 오류' });
   }
