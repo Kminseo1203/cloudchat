@@ -1,0 +1,23 @@
+name = "messenger-worker"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Durable Objects (실시간 WebSocket)
+[[durable_objects.bindings]]
+name = "CHAT_ROOM"
+class_name = "ChatRoom"
+
+[[migrations]]
+tag = "v1"
+new_classes = ["ChatRoom"]
+
+# D1 데이터베이스
+[[d1_databases]]
+binding = "DB"
+database_name = "messenger-db"
+database_id = "여기에_D1_ID_입력"  # wrangler d1 create messenger-db 실행 후 나오는 ID
+
+# 환경변수 (wrangler secret put 으로 설정)
+# JWT_SECRET
+# FRONTEND_URL
